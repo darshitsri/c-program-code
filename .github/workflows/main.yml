@@ -19,6 +19,8 @@ jobs:
         
     - name: CMake build and run
       uses: darshitsri/composite-action@v1
+      with:
+         PATH : /home/runner/work/c-program-code/c-program-code
 #      run: |
 #        pwd
 #        ls -lrths
