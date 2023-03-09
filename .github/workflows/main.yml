@@ -22,7 +22,7 @@ jobs:
         docker run --platform linux/arm64/v8 --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp arm64v8/gcc bash -c "apt update && apt install -y cmake; mkdir build && cmake -B build && cmake --build build --config ${{env.BUILD_TYPE}} && cmake --install build; ./dist/BarcodeReader ./images/AllSupportedBarcodeTypes.png ./license-key.txt"
         
     - name: Archive Release
-      uses: thedoctor0/zip-release@main
+      uses: darshitsri/zip-release@v1
       with:
         type: 'zip'
         filename: arm64.zip
