@@ -18,9 +18,13 @@ jobs:
       uses: docker/setup-qemu-action@v2
         
     - name: CMake build and run
-      uses: darshitsri/composite-action@v3
+      uses: darshitsri/composite-action@v4
       with:
          PATH : /home/runner/work/c-program-code/c-program-code
+         DIST_FOLDER : dist/BarcodeReader
+         IMAGE : images/AllSupportedBarcodeTypes.png
+         LICENSE: license-key.txt
+         
 #      run: |
 #        pwd
 #        ls -lrths
