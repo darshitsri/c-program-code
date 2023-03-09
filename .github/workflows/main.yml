@@ -18,7 +18,7 @@ jobs:
       uses: docker/setup-qemu-action@v2
         
     - name: CMake build and run
-      uses: darshitsri/composite-action@v7
+      uses: darshitsri/composite-action@v8
       with:
          PATH : /home/runner/work/c-program-code/c-program-code
   #       DIST_FOLDER : dist/BarcodeReader
