@@ -17,18 +17,16 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
         
-    - name: CMake build and run
-#      uses: darshitsri/composite-action@v8
-#      with:
-#         PATH : /home/runner/work/c-program-code/c-program-code
-  #       DIST_FOLDER : dist/BarcodeReader
-  #       IMAGE : images/AllSupportedBarcodeTypes.png
-  #       LICENSE: license-key.txt
-#    - name: Run manuall    
+    - name: CMake build and run    
       run: |
         pwd
         ls -lrths
-        docker run --platform linux/arm64/v8 --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp arm64v8/gcc bash -c "apt update && apt install -y cmake; mkdir build && cmake -B build && cmake --build build --config ${{env.BUILD_TYPE}} && cmake --install build; ./dist/BarcodeReader ./images/AllSupportedBarcodeTypes.png ./license-key.txt"
+        docker run --platform linux/arm64/v8 --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp arm64v8/gcc
+    - name: installing cmake with custome action
+      uses : darshitsri/cmake-action@v1
+    - name: code binding
+      run: |
+        bash -c "mkdir build && cmake -B build && cmake --build build --config ${{env.BUILD_TYPE}} && cmake --install build; ./dist/BarcodeReader ./images/AllSupportedBarcodeTypes.png ./license-key.txt"
     - name: Archive Release
       uses: darshitsri/zip-release@v3
       with:
