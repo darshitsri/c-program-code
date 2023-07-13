@@ -1,0 +1,3 @@
+[submodule ".build/project1"]
+	path = .build/project1
+	url = https://github.com/darshitsri/project1
