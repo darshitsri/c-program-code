@@ -14,6 +14,6 @@ jobs:
        submodules: recursive
        token: ${{ secrets.PAT_TOKEN }}
     - name: to test the directory
-      run: cd .build/build_tools &&
+      run: cd .build/project1 &&
            ls -lrths &&
            pwd
