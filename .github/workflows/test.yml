@@ -2,7 +2,7 @@ name: for testing purpose
 
 on:
   push:
-    branches: [ "feature/test_legacy" ]
+    branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest
