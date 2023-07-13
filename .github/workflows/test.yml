@@ -1,0 +1,19 @@
+name: for testing purpose
+
+on:
+  push:
+    branches: [ "feature/test_legacy" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+ #   - name: Checkout submodules
+ #     run: git submodule update --init --recursive
+      with:
+       submodules: recursive
+       token: ${{ secrets.PAT_TOKEN }}
+    - name: to test the directory
+      run: cd .build/build_tools &&
+           ls -lrths &&
+           pwd
